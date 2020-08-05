@@ -3,8 +3,14 @@ import { Text } from 'react-native';
 
 import Search from '../../components/Search';
 
+import { Container } from './styles';
+
 function Home() {
-  return <Search />;
+  return (
+    <Container>
+      <Search />
+    </Container>
+  );
 }
 
 export default Home;
