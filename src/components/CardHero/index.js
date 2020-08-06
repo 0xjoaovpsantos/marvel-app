@@ -1,20 +1,26 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { Container, Text } from './styles';
 
 function CardHero() {
+  const navigation = useNavigation();
   return (
-    <Container>
-      <Text>3-D Man</Text>
-      <Image
-        style={styles.img}
-        source={{
-          uri:
-            'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/landscape_xlarge.jpg',
-        }}
-      />
-    </Container>
+    <TouchableWithoutFeedback
+      onPress={() => navigation.navigate('Description')}
+    >
+      <Container>
+        <Text>3-D Man</Text>
+        <Image
+          style={styles.img}
+          source={{
+            uri:
+              'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/landscape_xlarge.jpg',
+          }}
+        />
+      </Container>
+    </TouchableWithoutFeedback>
   );
 }
 
