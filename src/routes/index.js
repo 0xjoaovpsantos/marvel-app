@@ -13,7 +13,7 @@ function Routes() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Description} />
       <Stack.Screen name="Description" component={Description} />
     </Stack.Navigator>
   );
