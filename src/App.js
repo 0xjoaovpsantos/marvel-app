@@ -4,10 +4,14 @@ import Routes from './routes';
 
 import { NavigationContainer } from '@react-navigation/native';
 
+import HeroesProvider from './context/Heroes';
+
 function App() {
   return (
     <NavigationContainer>
-      <Routes />
+      <HeroesProvider>
+        <Routes />
+      </HeroesProvider>
     </NavigationContainer>
   );
 }

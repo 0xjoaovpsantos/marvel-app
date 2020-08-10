@@ -6,15 +6,15 @@ import CardHero from '../../components/CardHero';
 import { Container } from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
 
+import { useHeroes } from '../../context/Heroes';
+
 function Home() {
+  const { listHeroes } = useHeroes();
+
   return (
     <Container>
       <Search />
       <ScrollView>
-        <CardHero />
-        <CardHero />
-        <CardHero />
-        <CardHero />
         <CardHero />
       </ScrollView>
     </Container>

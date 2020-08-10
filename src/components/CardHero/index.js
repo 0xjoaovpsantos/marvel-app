@@ -4,14 +4,14 @@ import { useNavigation } from '@react-navigation/native';
 
 import { Container, Text } from './styles';
 
-function CardHero() {
+function CardHero(props) {
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
       onPress={() => navigation.navigate('Description')}
     >
       <Container>
-        <Text>3-D Man</Text>
+        <Text>{props}</Text>
         <Image
           style={styles.img}
           source={{
