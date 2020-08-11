@@ -15,7 +15,9 @@ function Home() {
     <Container>
       <Search />
       <ScrollView>
-        <CardHero />
+        {listHeroes.map((hero) => (
+          <CardHero hero={hero} />
+        ))}
       </ScrollView>
     </Container>
   );

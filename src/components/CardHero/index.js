@@ -4,19 +4,18 @@ import { useNavigation } from '@react-navigation/native';
 
 import { Container, Text } from './styles';
 
-function CardHero(props) {
+function CardHero({ hero }) {
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
       onPress={() => navigation.navigate('Description')}
     >
       <Container>
-        <Text>{props}</Text>
+        <Text>{hero.name}</Text>
         <Image
           style={styles.img}
           source={{
-            uri:
-              'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/landscape_xlarge.jpg',
+            uri: `${hero.thumbnail.path}/landscape_xlarge.${hero.thumbnail.extension}`,
           }}
         />
       </Container>

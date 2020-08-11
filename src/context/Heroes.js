@@ -6,7 +6,7 @@ import { PUBLIC_KEY, PRIVATE_KEY } from '../../config.json';
 const HeroesContext = createContext();
 
 export default function HeroesProvider({ children }) {
-  const [listHeroes, setListHeroes] = useState();
+  const [listHeroes, setListHeroes] = useState([]);
 
   useEffect(() => {
     getListHeroes();
@@ -20,7 +20,7 @@ export default function HeroesProvider({ children }) {
           date + PRIVATE_KEY + PUBLIC_KEY,
         )}`,
       );
-      //setListHeroes(response.data.data.results);
+      setListHeroes(response.data.data.results);
       console.log(response.data.data.results);
     } catch (error) {
       console.error(error.response.data);
