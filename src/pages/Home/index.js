@@ -1,24 +1,27 @@
 import React from 'react';
-
+import { FlatList, Alert } from 'react-native';
 import Search from '../../components/Search';
 import CardHero from '../../components/CardHero';
+import Loader from '../../components/Loader';
 
 import { Container } from './styles';
-import { ScrollView } from 'react-native-gesture-handler';
 
 import { useHeroes } from '../../context/Heroes';
 
 function Home() {
-  const { listHeroes } = useHeroes();
+  const { listHeroes, loadListHeroes } = useHeroes();
 
   return (
     <Container>
       <Search />
-      <ScrollView>
-        {listHeroes.map((hero) => (
-          <CardHero hero={hero} />
-        ))}
-      </ScrollView>
+      <FlatList
+        data={listHeroes}
+        renderItem={({ item: hero }) => <CardHero hero={hero} />}
+        keyExtractor={(hero) => hero.name}
+        onEndReached={loadListHeroes}
+        onEndReachedThreshold={0.1}
+        ListFooterComponent={Loader}
+      />
     </Container>
   );
 }

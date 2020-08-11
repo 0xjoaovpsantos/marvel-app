@@ -7,29 +7,34 @@ const HeroesContext = createContext();
 
 export default function HeroesProvider({ children }) {
   const [listHeroes, setListHeroes] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getListHeroes();
+    loadListHeroes();
   }, []);
 
-  async function getListHeroes() {
+  async function loadListHeroes() {
+    setLoading(true);
     try {
       const date = Date.now();
       const response = await api.get(
         `/v1/public/characters?ts=${date}&apikey=${PUBLIC_KEY}&hash=${md5(
           date + PRIVATE_KEY + PUBLIC_KEY,
-        )}`,
+        )}&offset=${offset}`,
       );
-      setListHeroes(response.data.data.results);
+      setListHeroes([...listHeroes, ...response.data.data.results]);
+      setOffset((prevState) => prevState + 20);
       console.log(response.data.data.results);
     } catch (error) {
       console.error(error.response.data);
     }
+    setLoading(false);
     //setListHeroes(response.data);
   }
 
   return (
-    <HeroesContext.Provider value={{ listHeroes, setListHeroes }}>
+    <HeroesContext.Provider value={{ listHeroes, loadListHeroes, loading }}>
       {children}
     </HeroesContext.Provider>
   );
@@ -42,7 +47,7 @@ export function useHeroes() {
     throw new Error('useHeroes must be used within a HeroesProvider');
   }
 
-  const { listHeroes, setListHeroes } = context;
+  const { listHeroes, loadListHeroes, loading } = context;
 
-  return { listHeroes, setListHeroes };
+  return { listHeroes, loadListHeroes, loading };
 }
