@@ -15,7 +15,9 @@ import {
   Comics,
 } from './styles';
 
-function Description() {
+function Description({ route }) {
+  const { hero } = route.params;
+
   return (
     <Container>
       <ScrollView>
@@ -25,20 +27,14 @@ function Description() {
             <Image
               style={styles.imgProfile}
               source={{
-                uri:
-                  'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/standard_fantastic.jpg',
+                uri: `${hero.thumbnail.path}/standard_fantastic.${hero.thumbnail.extension}`,
               }}
             />
-            <Name>Nome do herói nome do herói</Name>
+            <Name>{hero.name}</Name>
           </Profile>
           <About>
             <TitleSection>DESCRIPTION</TitleSection>
-            <DescriptionText>
-              A descrição do personagem fica aqui A descrição do personagem fica
-              aqui A descrição do personagem fica aqui A descrição do personagem
-              fica aqui A descrição do personagem fica aqui A descrição do
-              personagem fica aqui A descrição do personagem fica aqui
-            </DescriptionText>
+            <DescriptionText>{hero.description}</DescriptionText>
           </About>
         </Wrapper>
         <Comics>

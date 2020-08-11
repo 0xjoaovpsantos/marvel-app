@@ -8,7 +8,7 @@ function CardHero({ hero }) {
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
-      onPress={() => navigation.navigate('Description')}
+      onPress={() => navigation.navigate('Description', { hero: hero })}
     >
       <Container>
         <Text>{hero.name}</Text>
