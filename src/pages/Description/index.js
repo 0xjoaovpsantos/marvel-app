@@ -12,7 +12,9 @@ import {
   About,
   TitleSection,
   DescriptionText,
-  Comics,
+  Appearances,
+  DescriptionApperances,
+  Text,
 } from './styles';
 
 function Description({ route }) {
@@ -36,47 +38,25 @@ function Description({ route }) {
             <TitleSection>DESCRIPTION</TitleSection>
             <DescriptionText>{hero.description}</DescriptionText>
           </About>
+          <Appearances>
+            <DescriptionApperances>
+              <Text>Comics</Text>
+              <Text>{hero.comics.available}</Text>
+            </DescriptionApperances>
+            <DescriptionApperances>
+              <Text>Events</Text>
+              <Text>{hero.events.available}</Text>
+            </DescriptionApperances>
+            <DescriptionApperances>
+              <Text>Series</Text>
+              <Text>{hero.series.available}</Text>
+            </DescriptionApperances>
+            <DescriptionApperances>
+              <Text>Stories</Text>
+              <Text>{hero.stories.available}</Text>
+            </DescriptionApperances>
+          </Appearances>
         </Wrapper>
-        <Comics>
-          <TitleSection>COMICS</TitleSection>
-        </Comics>
-        <ScrollView horizontal>
-          <Image
-            style={styles.imgComic}
-            source={{
-              uri:
-                'http://x.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_fantastic.jpg',
-            }}
-          />
-          <Image
-            style={styles.imgComic}
-            source={{
-              uri:
-                'http://x.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_fantastic.jpg',
-            }}
-          />
-          <Image
-            style={styles.imgComic}
-            source={{
-              uri:
-                'http://x.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_fantastic.jpg',
-            }}
-          />
-          <Image
-            style={styles.imgComic}
-            source={{
-              uri:
-                'http://x.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_fantastic.jpg',
-            }}
-          />
-          <Image
-            style={styles.imgComic}
-            source={{
-              uri:
-                'http://x.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_fantastic.jpg',
-            }}
-          />
-        </ScrollView>
       </ScrollView>
     </Container>
   );

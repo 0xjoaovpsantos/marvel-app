@@ -23,6 +23,7 @@ export default function HeroesProvider({ children }) {
           date + PRIVATE_KEY + PUBLIC_KEY,
         )}&offset=${offset}`,
       );
+      console.log(response.data.data.results);
       setListHeroes([...listHeroes, ...response.data.data.results]);
       setOffset((prevState) => prevState + 20);
     } catch (error) {

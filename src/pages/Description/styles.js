@@ -32,13 +32,26 @@ export const About = styled.View`
 `;
 
 export const TitleSection = styled.Text`
-  color: ${AppColors.descriptionTitlesColor};
+  color: ${AppColors.fontColor};
+  font-size: 24px;
 `;
 
 export const DescriptionText = styled.Text`
   color: ${AppColors.fontColor};
+  font-size: 16px;
 `;
 
-export const Comics = styled.View`
-  margin-left: 20px;
+export const Appearances = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+`;
+
+export const DescriptionApperances = styled.View`
+  align-items: center;
+`;
+
+export const Text = styled.Text`
+  color: ${AppColors.fontColor};
+  font-size: 24px;
 `;
