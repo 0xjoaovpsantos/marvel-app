@@ -34,10 +34,13 @@ function Description({ route }) {
             />
             <Name>{hero.name}</Name>
           </Profile>
-          <About>
-            <TitleSection>DESCRIPTION</TitleSection>
-            <DescriptionText>{hero.description}</DescriptionText>
-          </About>
+          {hero.description !== '' && (
+            <About>
+              <TitleSection>DESCRIPTION</TitleSection>
+              <DescriptionText>{hero.description}</DescriptionText>
+            </About>
+          )}
+
           <Appearances>
             <DescriptionApperances>
               <Text>Comics</Text>
