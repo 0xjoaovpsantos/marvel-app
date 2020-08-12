@@ -40,7 +40,6 @@ function Description({ route }) {
               <DescriptionText>{hero.description}</DescriptionText>
             </About>
           )}
-
           <Appearances>
             <DescriptionApperances>
               <Text>Comics</Text>

@@ -8,6 +8,7 @@ const HeroesContext = createContext();
 export default function HeroesProvider({ children }) {
   const [listHeroes, setListHeroes] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,21 +16,25 @@ export default function HeroesProvider({ children }) {
   }, []);
 
   async function loadListHeroes() {
-    setLoading(true);
-    try {
-      const date = Date.now();
-      const response = await api.get(
-        `/v1/public/characters?ts=${date}&apikey=${PUBLIC_KEY}&hash=${md5(
-          date + PRIVATE_KEY + PUBLIC_KEY,
-        )}&offset=${offset}`,
-      );
-      console.log(response.data.data.results);
-      setListHeroes([...listHeroes, ...response.data.data.results]);
-      setOffset((prevState) => prevState + 20);
-    } catch (error) {
-      console.error(error.response.data);
+    if (offset <= total) {
+      setLoading(true);
+      try {
+        const date = Date.now();
+        const response = await api.get(
+          `/v1/public/characters?ts=${date}&apikey=${PUBLIC_KEY}&hash=${md5(
+            date + PRIVATE_KEY + PUBLIC_KEY,
+          )}&offset=${offset}`,
+        );
+        if (total === 0) {
+          setTotal(response.data.data.total);
+        }
+        setListHeroes([...listHeroes, ...response.data.data.results]);
+        setOffset((prevState) => prevState + 20);
+      } catch (error) {
+        console.error(error.response.data);
+      }
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
