@@ -35,6 +35,7 @@ export default function HeroesProvider({ children }) {
         if (total === 0) {
           setTotal(response.data.data.total);
         }
+
         setListHeroes([...listHeroes, ...response.data.data.results]);
         setOffset(response.data.data.offset + 20);
       } catch (error) {

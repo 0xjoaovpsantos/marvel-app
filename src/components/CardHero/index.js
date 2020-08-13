@@ -8,6 +8,7 @@ function CardHero({ hero }) {
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
+      testID="container-cardhero"
       onPress={() => navigation.navigate('Description', { hero: hero })}
     >
       <Container>
