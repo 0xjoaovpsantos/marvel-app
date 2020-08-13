@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import AppColors from '../../utils/appColors';
 
 import { useHeroes } from '../../context/Heroes';
@@ -10,11 +10,11 @@ function Loader() {
   const { loading } = useHeroes();
 
   if (!loading) {
-    return null;
+    return <View testID="no-container-loader" />;
   }
 
   return (
-    <Container>
+    <Container testID="container-loader">
       <ActivityIndicator color={AppColors.fontColor} size="large" />
     </Container>
   );

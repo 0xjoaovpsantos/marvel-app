@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1597338319356" clover="3.2.0">
-  <project timestamp="1597338319356" name="All files">
-    <metrics statements="88" coveredstatements="9" conditionals="18" coveredconditionals="2" methods="18" coveredmethods="3" elements="124" coveredelements="14" complexity="0" loc="88" ncloc="88" packages="6" files="11" classes="11"/>
+<coverage generated="1597340618263" clover="3.2.0">
+  <project timestamp="1597340618263" name="All files">
+    <metrics statements="88" coveredstatements="14" conditionals="18" coveredconditionals="4" methods="18" coveredmethods="4" elements="124" coveredelements="22" complexity="0" loc="88" ncloc="88" packages="6" files="11" classes="11"/>
     <package name="components.CardHero">
       <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="index.js" path="C:\marvelApp\src\components\CardHero\index.js">
@@ -18,17 +18,17 @@
       </file>
     </package>
     <package name="components.Loader">
-      <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="index.js" path="C:\marvelApp\src\components\Loader\index.js">
-        <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
       <file name="styles.js" path="C:\marvelApp\src\components\Loader\styles.js">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Search">
