@@ -9,6 +9,13 @@ export default function HeroesProvider({ children }) {
   const [listHeroes, setListHeroes] = useState([]);
   const [offset, setOffset] = useState(0);
   const [total, setTotal] = useState(0);
+
+  const [listSearchHeroes, setListSearchHeroes] = useState([]);
+  const [offsetSearch, setOffsetSearch] = useState(0);
+  const [totalSearch, setTotalSearch] = useState(0);
+  const [search, setSearch] = useState('');
+  const [searchEnabled, setSearchEnabled] = useState(false);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +36,41 @@ export default function HeroesProvider({ children }) {
           setTotal(response.data.data.total);
         }
         setListHeroes([...listHeroes, ...response.data.data.results]);
-        setOffset((prevState) => prevState + 20);
+        setOffset(response.data.data.offset + 20);
+      } catch (error) {
+        console.error(error.response.data);
+      }
+      setLoading(false);
+    }
+  }
+
+  async function searchHeroes() {
+    if (search === '') {
+      setOffsetSearch(0);
+      setTotalSearch(0);
+      setListSearchHeroes([]);
+      return;
+    }
+
+    if (offsetSearch <= totalSearch) {
+      setLoading(true);
+      setSearchEnabled(true);
+      try {
+        const date = Date.now();
+        const response = await api.get(
+          `/v1/public/characters?ts=${date}&apikey=${PUBLIC_KEY}&hash=${md5(
+            date + PRIVATE_KEY + PUBLIC_KEY,
+          )}&offset=${offsetSearch}&nameStartsWith=${search}`,
+        );
+        console.log(response.data.data.results);
+
+        setTotalSearch(response.data.data.total);
+
+        setOffsetSearch(response.data.data.offset + 20);
+        setListSearchHeroes([
+          ...listSearchHeroes,
+          ...response.data.data.results,
+        ]);
       } catch (error) {
         console.error(error.response.data);
       }
@@ -38,7 +79,19 @@ export default function HeroesProvider({ children }) {
   }
 
   return (
-    <HeroesContext.Provider value={{ listHeroes, loadListHeroes, loading }}>
+    <HeroesContext.Provider
+      value={{
+        listHeroes,
+        loadListHeroes,
+        loading,
+        listSearchHeroes,
+        search,
+        searchHeroes,
+        setSearch,
+        searchEnabled,
+        setSearchEnabled,
+      }}
+    >
       {children}
     </HeroesContext.Provider>
   );
@@ -51,7 +104,27 @@ export function useHeroes() {
     throw new Error('useHeroes must be used within a HeroesProvider');
   }
 
-  const { listHeroes, loadListHeroes, loading } = context;
+  const {
+    listHeroes,
+    loadListHeroes,
+    loading,
+    listSearchHeroes,
+    search,
+    searchHeroes,
+    setSearch,
+    searchEnabled,
+    setSearchEnabled,
+  } = context;
 
-  return { listHeroes, loadListHeroes, loading };
+  return {
+    listHeroes,
+    loadListHeroes,
+    loading,
+    listSearchHeroes,
+    search,
+    searchHeroes,
+    setSearch,
+    searchEnabled,
+    setSearchEnabled,
+  };
 }
