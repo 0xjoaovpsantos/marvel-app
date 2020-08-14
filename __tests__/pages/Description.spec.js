@@ -3,10 +3,10 @@ import { render } from '@testing-library/react-native';
 
 import Description from '../../src/pages/Description';
 
-const hero = {
+const mockHero = {
   id: 1011334,
   name: '3-D Man',
-  description: '',
+  description: 'Description here',
   thumbnail: {
     path: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784',
     extension: 'jpg',
@@ -24,6 +24,13 @@ const hero = {
     available: 1,
   },
 };
+jest.mock('../../src/context/Heroes', () => {
+  return {
+    useHeroes: () => ({
+      hero: mockHero,
+    }),
+  };
+});
 
 describe('Description page', () => {
   it('should be able to render an description of hero', () => {
