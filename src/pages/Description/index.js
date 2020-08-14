@@ -21,7 +21,7 @@ function Description({ route }) {
   const { hero } = route.params;
 
   return (
-    <Container>
+    <Container testID="container-description">
       <ScrollView>
         <Header />
         <Wrapper>
