@@ -47,16 +47,19 @@ export default function HeroesProvider({ children }) {
     }
   }
 
-  async function searchHeroes() {
-    if (search === '') {
+  async function searchHeroes(newSearch = true) {
+    if (newSearch) {
       setOffsetSearch(0);
       setTotalSearch(0);
       setListSearchHeroes([]);
+    }
+
+    if (search === '') {
       return;
     }
 
     /* istanbul ignore else*/
-    if (offsetSearch <= totalSearch) {
+    if (offsetSearch <= totalSearch || newSearch) {
       setLoading(true);
       setSearchEnabled(true);
       try {
@@ -64,16 +67,17 @@ export default function HeroesProvider({ children }) {
         const response = await api.get(
           `/v1/public/characters?ts=${date}&apikey=${PUBLIC_KEY}&hash=${md5(
             date + PRIVATE_KEY + PUBLIC_KEY,
-          )}&offset=${offsetSearch}&nameStartsWith=${search}`,
+          )}&offset=${newSearch ? 0 : offsetSearch}&nameStartsWith=${search}`,
         );
 
         setTotalSearch(response.data.data.total);
 
         setOffsetSearch(response.data.data.offset + 20);
-        setListSearchHeroes([
-          ...listSearchHeroes,
-          ...response.data.data.results,
-        ]);
+        setListSearchHeroes(
+          newSearch
+            ? [...response.data.data.results]
+            : [...listSearchHeroes, ...response.data.data.results],
+        );
       } catch (error) {
         throw new Error(error.response.data);
       }

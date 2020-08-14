@@ -19,12 +19,14 @@ function Search() {
           style={styles.input}
           value={search}
           onChangeText={(name) => {
+            setSearch(name);
             if (name === '') {
               setSearchEnabled(false);
             }
-            setSearch(name);
           }}
-          onSubmitEditing={() => searchHeroes()}
+          onSubmitEditing={() => {
+            searchHeroes();
+          }}
         />
       </InputContainer>
     </Container>

@@ -36,7 +36,7 @@ function Home() {
           data={listSearchHeroes}
           renderItem={({ item: hero }) => <CardHero hero={hero} />}
           keyExtractor={(hero) => hero.name}
-          onEndReached={() => searchHeroes()}
+          onEndReached={() => searchHeroes(false)}
           onEndReachedThreshold={0.1}
           ListFooterComponent={Loader}
         />
