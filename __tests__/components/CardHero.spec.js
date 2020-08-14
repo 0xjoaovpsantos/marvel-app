@@ -13,11 +13,20 @@ const mockedHero = {
 };
 
 const mockedNavigate = jest.fn();
+const mockSetHero = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
     useNavigation: () => ({
       navigate: mockedNavigate,
+    }),
+  };
+});
+
+jest.mock('../../src/context/Heroes', () => {
+  return {
+    useHeroes: () => ({
+      setHero: mockSetHero,
     }),
   };
 });
@@ -36,8 +45,7 @@ describe('CardHero component', () => {
 
     fireEvent.press(cardHeroComponent);
 
-    expect(mockedNavigate).toHaveBeenCalledWith('Description', {
-      hero: mockedHero,
-    });
+    expect(mockSetHero).toHaveBeenCalledWith(mockedHero);
+    expect(mockedNavigate).toHaveBeenCalledWith('Description');
   });
 });

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1597416878921" clover="3.2.0">
-  <project timestamp="1597416878921" name="All files">
-    <metrics statements="87" coveredstatements="86" conditionals="18" coveredconditionals="13" methods="18" coveredmethods="18" elements="123" coveredelements="117" complexity="0" loc="87" ncloc="87" packages="6" files="11" classes="11"/>
+<coverage generated="1597421791153" clover="3.2.0">
+  <project timestamp="1597421791153" name="All files">
+    <metrics statements="90" coveredstatements="89" conditionals="18" coveredconditionals="13" methods="18" coveredmethods="18" elements="126" coveredelements="120" complexity="0" loc="90" ncloc="90" packages="6" files="11" classes="11"/>
     <package name="components.CardHero">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="index.js" path="C:\marvelApp\src\components\CardHero\index.js">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
       <file name="styles.js" path="C:\marvelApp\src\components\CardHero\styles.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -50,54 +52,55 @@
       </file>
     </package>
     <package name="context">
-      <metrics statements="45" coveredstatements="45" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="5"/>
+      <metrics statements="46" coveredstatements="46" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="5"/>
       <file name="Heroes.js" path="C:\marvelApp\src\context\Heroes.js">
-        <metrics statements="45" coveredstatements="45" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="5"/>
-        <line num="6" count="1" type="stmt"/>
+        <metrics statements="46" coveredstatements="46" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="5"/>
+        <line num="6" count="2" type="stmt"/>
         <line num="9" count="19" type="stmt"/>
-        <line num="10" count="19" type="stmt"/>
         <line num="11" count="19" type="stmt"/>
+        <line num="12" count="19" type="stmt"/>
         <line num="13" count="19" type="stmt"/>
-        <line num="14" count="19" type="stmt"/>
         <line num="15" count="19" type="stmt"/>
         <line num="16" count="19" type="stmt"/>
         <line num="17" count="19" type="stmt"/>
+        <line num="18" count="19" type="stmt"/>
         <line num="19" count="19" type="stmt"/>
         <line num="21" count="19" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="26" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
+        <line num="23" count="19" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="29" count="3" type="stmt"/>
         <line num="30" count="3" type="stmt"/>
-        <line num="35" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="49" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="37" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="52" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
-        <line num="56" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="58" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="59" count="2" type="stmt"/>
         <line num="60" count="2" type="stmt"/>
         <line num="61" count="2" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
-        <line num="81" count="19" type="stmt"/>
-        <line num="101" count="20" type="stmt"/>
-        <line num="103" count="20" type="cond" truecount="2" falsecount="0"/>
-        <line num="104" count="1" type="stmt"/>
-        <line num="117" count="19" type="stmt"/>
-        <line num="119" count="19" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="83" count="19" type="stmt"/>
+        <line num="105" count="21" type="stmt"/>
+        <line num="107" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="123" count="19" type="stmt"/>
+        <line num="125" count="19" type="stmt"/>
       </file>
     </package>
     <package name="pages.Description">
