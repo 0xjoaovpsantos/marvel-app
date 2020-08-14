@@ -25,6 +25,7 @@ export default function HeroesProvider({ children }) {
   }, []);
 
   async function loadListHeroes() {
+    /* istanbul ignore else*/
     if (offset <= total) {
       setLoading(true);
       try {
@@ -34,9 +35,8 @@ export default function HeroesProvider({ children }) {
             date + PRIVATE_KEY + PUBLIC_KEY,
           )}&offset=${offset}`,
         );
-        if (total === 0) {
-          setTotal(response.data.data.total);
-        }
+
+        setTotal(response.data.data.total);
 
         setListHeroes([...listHeroes, ...response.data.data.results]);
         setOffset(response.data.data.offset + 20);
@@ -55,6 +55,7 @@ export default function HeroesProvider({ children }) {
       return;
     }
 
+    /* istanbul ignore else*/
     if (offsetSearch <= totalSearch) {
       setLoading(true);
       setSearchEnabled(true);
