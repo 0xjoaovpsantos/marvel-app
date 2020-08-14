@@ -39,7 +39,7 @@ export default function HeroesProvider({ children }) {
         setListHeroes([...listHeroes, ...response.data.data.results]);
         setOffset(response.data.data.offset + 20);
       } catch (error) {
-        console.error(error.response.data);
+        throw new Error(error.response.data);
       }
       setLoading(false);
     }
@@ -63,7 +63,6 @@ export default function HeroesProvider({ children }) {
             date + PRIVATE_KEY + PUBLIC_KEY,
           )}&offset=${offsetSearch}&nameStartsWith=${search}`,
         );
-        console.log(response.data.data.results);
 
         setTotalSearch(response.data.data.total);
 
@@ -73,7 +72,7 @@ export default function HeroesProvider({ children }) {
           ...response.data.data.results,
         ]);
       } catch (error) {
-        console.error(error.response.data);
+        throw new Error(error.response.data);
       }
       setLoading(false);
     }
