@@ -22,6 +22,7 @@ function Home() {
       <Search />
       {searchEnabled === false ? (
         <FlatList
+          testID="list-heroes"
           data={listHeroes}
           renderItem={({ item: hero }) => <CardHero hero={hero} />}
           keyExtractor={(hero) => hero.name}
@@ -31,10 +32,11 @@ function Home() {
         />
       ) : (
         <FlatList
+          testID="list-search-heroes"
           data={listSearchHeroes}
           renderItem={({ item: hero }) => <CardHero hero={hero} />}
           keyExtractor={(hero) => hero.name}
-          onEndReached={() => searchHeroes(search)}
+          onEndReached={() => searchHeroes()}
           onEndReachedThreshold={0.1}
           ListFooterComponent={Loader}
         />
