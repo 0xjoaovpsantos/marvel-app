@@ -38,6 +38,16 @@ const mockData = {
   },
 };
 
+const mockDataAlternative = {
+  data: {
+    offset: 60,
+    limit: 20,
+    total: 40,
+    count: 20,
+    results: [hero],
+  },
+};
+
 describe('Heroes context', () => {
   it('should be able to load heroes', async () => {
     apiMock.onGet().reply(200, mockData);
@@ -65,17 +75,20 @@ describe('Heroes context', () => {
     await waitForNextUpdate();
 
     await act(async () => result.current.searchHeroes());
-
     expect(result.current.listSearchHeroes).toEqual([]);
 
     await act(async () => result.current.setSearch('3-D Man'));
     await act(async () => result.current.searchHeroes());
-
     expect(result.current.listSearchHeroes).toEqual([hero]);
 
     apiMock.onGet().reply(409, { message: 'Error' });
+    await expect(
+      async () => await act(() => result.current.searchHeroes()),
+    ).rejects.toThrow();
 
-    expect(() => act(() => result.current.searchHeroes())).rejects.toThrow();
+    apiMock.onGet().reply(200, mockData);
+    await act(() => result.current.searchHeroes(false));
+    expect(result.current.listSearchHeroes).toEqual([hero]);
   });
 
   it('should be able to get error on instance useHeroes', () => {

@@ -48,6 +48,7 @@ export default function HeroesProvider({ children }) {
   }
 
   async function searchHeroes(newSearch = true) {
+    /* istanbul ignore else*/
     if (newSearch) {
       setOffsetSearch(0);
       setTotalSearch(0);
