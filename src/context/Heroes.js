@@ -6,6 +6,8 @@ import { PUBLIC_KEY, PRIVATE_KEY } from '../../config.json';
 const HeroesContext = createContext();
 
 export default function HeroesProvider({ children }) {
+  const [hero, setHero] = useState({});
+
   const [listHeroes, setListHeroes] = useState([]);
   const [offset, setOffset] = useState(0);
   const [total, setTotal] = useState(0);
@@ -90,6 +92,8 @@ export default function HeroesProvider({ children }) {
         setSearch,
         searchEnabled,
         setSearchEnabled,
+        hero,
+        setHero,
       }}
     >
       {children}
@@ -114,6 +118,8 @@ export function useHeroes() {
     setSearch,
     searchEnabled,
     setSearchEnabled,
+    hero,
+    setHero,
   } = context;
 
   return {
@@ -126,5 +132,7 @@ export function useHeroes() {
     setSearch,
     searchEnabled,
     setSearchEnabled,
+    hero,
+    setHero,
   };
 }

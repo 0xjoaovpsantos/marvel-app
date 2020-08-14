@@ -1,15 +1,19 @@
 import React from 'react';
 import { StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { useHeroes } from '../../context/Heroes';
 import { Container, Text } from './styles';
 
 function CardHero({ hero }) {
+  const { setHero } = useHeroes();
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
       testID="container-cardhero"
-      onPress={() => navigation.navigate('Description', { hero: hero })}
+      onPress={() => {
+        setHero(hero);
+        navigation.navigate('Description');
+      }}
     >
       <Container>
         <Text>{hero.name}</Text>

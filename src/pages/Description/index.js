@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-
+import { useHeroes } from '../../context/Heroes';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import {
@@ -17,8 +17,8 @@ import {
   Text,
 } from './styles';
 
-function Description({ route }) {
-  const { hero } = route.params;
+function Description() {
+  const { hero } = useHeroes();
 
   return (
     <Container testID="container-description">
